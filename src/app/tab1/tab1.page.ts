@@ -27,7 +27,6 @@ export class Tab1Page {
   ngOnInit() {
     this.get_posts()
     this.validar_login();
-    this.validar_login2();
   }
 
   validar_login() {
@@ -36,17 +35,11 @@ export class Tab1Page {
     })
   }
 
+  openMenu() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
   establecer_validar_login(data) {
-    console.log(data)
-  }
-
-  validar_login2() {
-    this.remoteService.PostLogin("77023812", "1234").subscribe((data)=>{
-      this.establecer_validar_login2(data);
-    })
-  }
-
-  establecer_validar_login2(data) {
     console.log(data)
   }
 

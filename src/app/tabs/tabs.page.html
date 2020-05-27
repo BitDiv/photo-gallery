@@ -1,19 +1,60 @@
-<ion-tabs>
+
+<ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+  <ion-header >
+    <ion-toolbar color="tertiary"  class="mybg">
+      <ion-title>Custom Menu</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-title>Title Only</ion-title>
+    </ion-toolbar>
+    
+    <ion-toolbar color="secondary"  >
+      <ion-title>Back Button</ion-title>
+    </ion-toolbar>
+
+    <ion-button color="danger" [routerLink]="['/']" expand="block" >Cerrar Sesion</ion-button>
+    
+    <ion-toolbar>
+      <ion-title size="small">Small Title above a Default Title</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-title>Default Title</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-tabs id="main">
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab2">
       <ion-icon name="images"></ion-icon>
-      <ion-label>Photos</ion-label>
+      <ion-label>Fotos</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab3">
-      <ion-icon name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Perfil</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 

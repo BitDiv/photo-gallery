@@ -5,7 +5,13 @@ import { Observable } from 'rxjs';
 import { Constante } from '../modelo/constante';
 import { Respuesta } from '../modelo/respuesta';
 import { Usuario } from '../modelo/usuario';
+import { LoginPtp } from '../modelo/loginptp';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 
+    'Access-Control-Allow-Origin':'*',
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +21,7 @@ export class RestfulService {
   private headers: Headers;
   constructor(private http: HttpClient, private configuration: Configuracion) {
     this.actionUrl = ''
-     + configuration.Server
+   //  + configuration.Server
     + configuration.ApiUrl;
   }
   public PostLogin = (usuario: string, clave: string): Observable<Usuario> => {
@@ -29,6 +35,32 @@ export class RestfulService {
   }
   public CerrarLogin = (): Observable<Respuesta> => {
     return this.http.post<Respuesta>(this.actionUrl + 'reservabe/cerrarSession', '', { withCredentials: false });
+  }
+
+
+  public PostLoginPtp = (cusuario: string, cclave: string, ctoken_celular: string): Observable<LoginPtp> => {
+    const body = new HttpParams()
+    .set('cusuario', cusuario.toString())
+    .set('cclave', cclave.toString())
+    .set('ctoken_celular', ctoken_celular.toString());
+
+    return this.http.post<LoginPtp>('https://billetera.paytoperu.com/login', body.toString(), {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set( 'Access-Control-Allow-Origin','*')
+    });
+  }
+
+  public PostLoginPhp = (cusuario: string, cclave: string, ctoken_celular: string): Observable<Usuario> => {
+    const body = new HttpParams()
+    .set('cusu_cod', cusuario.toString())
+    .set('cclave', cclave.toString());
+
+    return this.http.post<Usuario>('https://pay-me.website/dautos/api/login', body.toString(), {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        //.set( 'Access-Control-Allow-Origin','*')
+    });
   }
 
 }

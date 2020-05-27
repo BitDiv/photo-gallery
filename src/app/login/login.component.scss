@@ -1,0 +1,17 @@
+.fullheight {
+    height: 100%;
+  }
+  
+.xc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-custom-class {
+    --background: #222;
+    --spinner-color: #fff;
+  
+    color: #fff;
+}

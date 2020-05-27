@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Tab 1
     </ion-title>
@@ -26,6 +29,8 @@
     A button with an unbounded ripple effect
     <ion-ripple-effect type="unbounded"></ion-ripple-effect>
   </button>
+
+  <ion-button expand="block" (click)="openMenu()">Open Menusito</ion-button>
 
   <ion-button (click)="showActionSheet()" expand="full">Full Button</ion-button>
   <ion-button (click)="presentModal()" expand="block">Block Button</ion-button>
